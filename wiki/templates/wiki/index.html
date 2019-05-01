@@ -1,0 +1,17 @@
+{%extends "wiki/base.html"%}
+{%load static%}
+
+{%block content%}
+{#This how you add comments to templates #}
+{% if latest_question_list %}
+    <h1 class="jumbotron">Wiki Index</h1>
+    <!--Wiki lists customization-->
+    <ul class="qlist list-group">
+    {% for question in latest_question_list %}
+    <li class="list-group-item"><a href="{% url 'wiki:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No wikis are available.</p>
+{% endif %}
+{%endblock content%}
