@@ -1,0 +1,10 @@
+{%extends "wiki/base.html"%}
+{% load static %}
+{%block content%}
+{%block contentTitle%}
+{%endblock contentTitle%}
+<h1>{{page_name}}</h1>
+<p>This page does not exist.</p>
+<a class="btn btn-primary" href="{%url 'wiki:edit_page' page_name%}">Create?</a>
+<a class="btn btn-primary" href="{% url 'wiki:index' %}">Home</a>
+{%endblock content%}

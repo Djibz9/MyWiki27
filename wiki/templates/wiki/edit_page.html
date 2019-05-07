@@ -1,0 +1,21 @@
+{%extends "wiki/base.html"%}
+{%load static%}
+{%block content%}
+{#This how you add comments to templates #}
+<header>
+<h3>
+    Editing {{page_name}}
+</h3>
+</header>
+
+<form method="post" action="{%url 'wiki:save_page' page_name%}">
+    {% csrf_token %}
+    <textarea name="content" rows="10" cols="40">
+        {{content}}
+    </textarea><br/>
+    <br>
+    <input class="btn btn-primary" type="submit" value="Save">
+</form>
+<br/>
+<a class="btn btn-primary" href="{% url 'wiki:index'%}">Cancel</a>
+{%endblock content%}

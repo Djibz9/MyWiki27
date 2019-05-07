@@ -1,5 +1,7 @@
 from django.views import generic
 from .models import Page
+from django.shortcuts import render,redirect
+
 
 
 class IndexView(generic.ListView):
@@ -7,30 +9,35 @@ class IndexView(generic.ListView):
     context_object_name = 'pages'
 
     def get_queryset(self):
-        return Page.objects.filter()
+        return Page.objects.all()
 
 class DetailView(generic.DetailView):
     model = Page
     template_name = 'wiki/detail.html'
-    def get_queryset(self):
-        """
-        Excludes any questions that aren't published yet.
-        """
-        return Page.objects.filter()
 #from https://repl.it/@ashleyo/WorseDisfiguredAdaware
-# def edit_page(request, page_name):
-#     try:
-#         page = Page.objects.get(pk=page_name)
-#     except Page.DoesNotExist:
-#         page = Page(title=page_name, content='')
-# return render(request,'wiki/edit_page.html', { 'page':page })
 
-# def save_page(request, page_name):
-#     content = request.POST["content"]    
-#     try:
-#         page = Page.objects.get(pk=page_name)
-#         page.content = content
-#     except Page.DoesNotExist:
-#         page = Page(name=page_name, content=content)
-#     page.save()
-# return redirect('wiki:detail', pk=page_name)
+def view_page(request, pk):
+    try:
+        page = Page.objects.get(pk=pk)
+        return render(request,'wiki/detail.html', { 'page':page })
+    except Page.DoesNotExist:
+        return render(request,'wiki/create_page.html', { 'page_name':pk })
+
+
+def edit_page(request, pk):
+    try:
+        page = Page.objects.get(pk=pk)
+        content = page.content
+    except Page.DoesNotExist:
+        content = ""
+    return render(request,'wiki/edit_page.html', { 'page_name':pk, 'content': content})
+
+def save_page(request, pk):
+    content = request.POST["content"]    
+    try:
+        page = Page.objects.get(pk=pk)
+        page.content = content
+    except Page.DoesNotExist:
+        page = Page(title=pk, content=content)
+    page.save()
+    return redirect('wiki:detail', pk=pk)
