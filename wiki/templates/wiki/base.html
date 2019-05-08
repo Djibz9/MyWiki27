@@ -1,10 +1,11 @@
 {%load static%}
 <!DOCTYPE html>
 <html>
-
     <head>
-            <link rel="stylesheet" type="text/css" href="#">  
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  
+            <link rel="stylesheet" type="text/css" href="{% static 'wiki/styles.css' %}">  
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+            
+       
     </head>
 
     <body> 
@@ -17,7 +18,14 @@
         </nav>
         <div class="container-fluid">
             {%block content%}NO CONTENT PROVIDED{%endblock content%}
-        </div>     
+        </div>   
+        <script src="{% static 'wiki/tinymce/tinymce.min.js' %}">
+        </script>  
+        <script>
+            tinymce.init({
+                selector: '#edit_content'
+            })
+        </script>
     </body>
 
 </html>

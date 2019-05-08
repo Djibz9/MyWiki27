@@ -3,13 +3,15 @@
 {%block content%}
 {#This how you add comments to templates #}
 {% if pages %}
-    <h1 class="jumbotron">Wiki Index</h1>
+<div class="container text-center">
+    <h1 class="jumbotron jt ">Wiki Index</h1>
     <!--Wiki lists customization-->
     <ul class="qlist list-group">
     {% for page in pages %}
     <li class="list-group-item"><a href="{% url 'wiki:detail' page.title %}">{{ page.title }}</a></li>
     {% endfor %}
     </ul>
+</div>
 {% else %}
     <p>No pages found.</p>
 {% endif %}
