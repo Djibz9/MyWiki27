@@ -1,7 +1,12 @@
-{%extends 'wiki/base.html'%}
-{%load static%}
-{%block content%}
+{% extends 'wiki/base.html' %}
+{% load static %}
+{% load my_tags %} 
+{% block content %}
 <h1>{{ page.title }}</h1>
-<p>{{page.content | safe}}</p>
+<p>{{page.content | wikify | markup  | safe}}</p>
+<!--{% if perms.foo %} -->
 <a class="btn btn-primary btn-warning" href="{% url 'wiki:edit_page' page.title %}">Edit</a>
-{%endblock content%}
+<!--{% endif %}-->
+<!--<p> Log in to make changes</p>
+
+{% endblock content %}

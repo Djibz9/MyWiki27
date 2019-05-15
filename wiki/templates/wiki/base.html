@@ -9,23 +9,29 @@
     </head>
 
     <body> 
-        <nav class="navbar navbar-light bg-light justify-content-between">
+         <nav class="navbar navbar-light bg-light justify-content-between">
             <a class="navbar-brand"> Kwik Wiki</a>
                 <form class="form-inline">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
-        </nav>
+        </nav> 
+
         <div class="container-fluid">
             {%block content%}NO CONTENT PROVIDED{%endblock content%}
-        </div>   
+        </div>
+          
+        <!--
         <script src="{% static 'wiki/tinymce/tinymce.min.js' %}">
         </script>  
         <script>
             tinymce.init({
-                selector: '#edit_content'
+                selector: '#edit_content',
+                 {% comment %} This option enables you to make sure that any non block elements or text nodes are wrapped in block elements. For example something will result in output like: <p><strong>something</strong></p>. This option is enabled by default as of 3.0a1. If you set this option to false it will never produce p tags on enter or automatically it will instead produce br elements and Shift+Enter will produce a p. {% endcomment %}
+                {% comment %} forced_root_block : false {% endcomment %}
             })
         </script>
+        --> 
     </body>
 
 </html>
