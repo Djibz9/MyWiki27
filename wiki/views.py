@@ -3,8 +3,8 @@ from .models import Page, UserFileUpload
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from .forms import UploadFileForm
- 
-
+from django.http import HttpResponse
+from django.db.models import F
 
 class IndexView(generic.ListView):
     template_name='wiki/index.html'
@@ -21,6 +21,10 @@ class DetailView(generic.DetailView):
 def view_page(request, pk):
     try:
         page = Page.objects.get(pk=pk)
+        page.counter = F('counter') + 1
+        #console.log ('page counter now{}'.format(page.counter))
+        page.save()
+        page.refresh_from_db()
         return render(request,'wiki/detail.html', { 'page':page })
     except Page.DoesNotExist:
         return render(request,'wiki/create_page.html', { 'page_name':pk })
@@ -75,4 +79,9 @@ def upload_file(request):
     context['form'] = form
     context['files'] = UserFileUpload.objects.all().order_by('upload')
     return render(request, 'wiki/upload.html', context)
-        
+
+def test_error_500(request):
+    raise HttpResponse(status=500)
+
+def test_error_404(request):
+    raise HttpResponse(status=404)

@@ -1,23 +1,27 @@
-{%extends "wiki/base.html"%}
-{%load static%}
-{%block content%}
+{% extends "wiki/base.html"%}
+{% load static %}
+{% block content %}
 {#This how you add comments to templates #}
 {% if pages %}
 <div class="container text-center">
 {% if request.user.is_authenticated %}
-<a href="{%url 'wiki:logout'%}" class="btn btn-danger"> Logout</a>
+<a href="{%url 'wiki:logout'%}" class="btn btn-danger login-logout"> Logout</a>
 {% else %}
-<a href="{%url 'wiki:login'%}" class="btn btn-warning"> Login</a>   
+<a href="{%url 'wiki:login'%}" class="btn btn-warning login-logout"> Login</a>   
 {% endif %} 
-    <h1 class="jumbotron jt ">Wiki Index</h1> <img src="{%static 'wiki/image/vanGogh.jpg'%}">
-    <!--Wiki lists customization-->
-        <ul class="qlist list-group">
-        {% for page in pages %}
-            <li class="list-group-item"><a href="{% url 'wiki:detail' page.title %}">{{ page.title }}</a></li>
-        {% endfor %}
-        </ul>
-</div>
+    <h1 class="jumbotron jt ">Welcome to Kwiki</h1> <img src="{%static 'wiki/image/vanGogh.jpg'%}"
+    <div>
+    {% for page in pages %}
+        <li class="list-group-item">
+             <a href="{% url 'wiki:detail' page.title %}" >{{ page.title }}</a>
+        </li>
+    {% endfor %}
+    </div>
 {% else %}
-    <p>No pages found.</p>
+ <p> No pages found.</p>
 {% endif %}
-{%endblock content%}
+{% endblock content%}
+
+{% block footer %}
+You are accesing this website through 
+{% endblock footer%}

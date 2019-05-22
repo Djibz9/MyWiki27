@@ -1,11 +1,11 @@
 {% extends "wiki/base.html" %}
 
 {% block content %}
-
+<!--Error message if the user fails to input the correct details-->
 {% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
-
+<!--Here an access level is determined-->
 {% if next %}
     {% if user.is_authenticated %}
     <p>Your account doesn't have access to this page. To proceed,
@@ -14,21 +14,21 @@
     <p>Please login to see this page.</p>
     {% endif %}
 {% endif %}
-
+<!--The Login form design-->
 <form class="form-signin" method="post" action="{% url 'wiki:login' %}">
 {% csrf_token %}
 <h1 class="text-center"> Kwik Login</h1>
-<div class="container pt-3">
-  <div class="row justify-content-sm-center">
-    <div class="col-sm-6 col-md-4">
-<div class="card-body">
-    <div class="card border-info text-center">
-        <div class="card-header">
-          Sign in to continue
-        </div>
-        <div class="card-body">
+  <div class="container pt-3">
+    <div class="row justify-content-sm-center">
+      <div class="col-sm-6 col-md-4">
+  <div class="card-body">
+      <div class="card border-info text-center">
+          <div class="card-header">
+            Sign in to continue
+          </div>
+          <div class="card-body">
           <img src="https://placeimg.com/128/128/tech/sepia">
-          <h4 class="text-center">Kwik Wiki</h4>
+        <h4 class="text-center">Kwiki</h4>
           <form class="form-signin">
             <input type="text" name="username" class="form-control mb-2" value="{{ form.username.value | default:''  }}" placeholder="Username" required autofocus>
             <input type="password" name="password" class="form-control mb-2" value="{{ form.password.value | default:'' }}" placeholder="Password" required>
@@ -44,9 +44,9 @@
       <a href="#" class="float-right">Create an account </a>
     </div>
     -->
+      </div>
+    </div>
   </div>
-</div>
-</div>
 </form>
 
 {# Assumes you setup the password_reset view in your URLconf #}

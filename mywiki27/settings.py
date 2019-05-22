@@ -131,3 +131,28 @@ MEDIA_URL = '/media/'
 
 LOGIN_REDIRECT_URL='/wiki/'
 LOGOUT_REDIRECT_URL='/wiki/accounts/login'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers':False,
+    'formatters':{
+        'simple':{
+            'format':'%{asctime} {levelname} {message}',
+             'style':'{',
+            },
+        },
+    'handlers':{
+        'file':{
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'debug.log'),
+        },
+    },
+    'loggers':{
+        'django':{
+            'handlers':['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}

@@ -3,16 +3,22 @@
 {% block contentTitle%} Upload  {% endblock %}
 {% block pageheader %}Uploaded Files{% endblock %}
 {% block content %}
+<h1> File Upload</h1>
 <section>
-    
     <form method='POST' enctype='multipart/form-data' action="{% url 'wiki:upload_page' %}">
-    {% csrf_token %}
-        {{form}}    
-    <input type='submit' value="Upload">
-    </form/>
-
+    <div class="form-group">
+	    <div class="input-group input-file" name="file">
+        {% csrf_token %}
+        {{form.upload}}		
+    </div>
+         </div>
+    <div class="form-group">
+	    <input class="btn btn-primary" type='submit' value="Upload">
+	    <button type="reset" class="btn btn-danger">Reset</button>
+    </div>
+    </form>
 </section>
-<hr/>
+</hr>
 <section>
 {% if files %}
     <ul>
