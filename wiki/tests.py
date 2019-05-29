@@ -12,16 +12,32 @@ class PageTestCase(TestCase):
     def setUp(self):
         User.objects.create_user("TestUser19", "testuser19@wiki.com", "notmypass1")
         Page.objects.create(title="Testpage", content ="This is a text page, purely for testing purposes.")
+    
     def test_page_works(self):
         """ Page is created and contains a title and content"""
         #Page.objects.get(title = "Testpage")
         content_test = Page.objects.get(content = "This is a text page, purely for testing purposes.")
         self.assertEqual(content_test.content,"This is a text page, purely for testing purposes." )
+    
     def test_page_edit(self):
         """logs in to the page to edit it"""
         self.client.login(username = 'TestUser19', password = 'notmypass1')
         response = self.client.get('/wiki/Testpage/edit')
         self.assertEqual(response.status_code, 200)
+     
+    def test_page_save(self):
+        """tests the saving feature of the wiki"""
+        self.client.login(username = 'TestUser19', password = 'notmypass1')
+        self.client.post('/wiki/Testpage2/save',{'Save': '', 'content':'whatever content'})
+        page_test = Page.objects.get(title = "Testpage2")
+        self.assertEqual(page_test.title, "Testpage2" )
+
+    def test_page_deletion(self):
+        """tests the deletion feature of the wiki"""
+        self.client.login(username = 'TestUser19', password = 'notmypass1')
+        self.client.post('/wiki/Testpage2/save',{'Delete': '', 'content':'whatever content'})
+        self.assertRaises(Page.DoesNotExist, Page.objects.get, title= "Testpage2" )
+    
     def test_page_exists(self):
         """Check if page exists"""
         response = self.client.get('/wiki/Testpage/')
@@ -35,7 +51,7 @@ class PageTests(TestCase):
         response.status_code
         self.assertEqual(response.status_code, 200)
 
-class PageLoginTest(TestCase):
+class PageLoginLogoutTest(TestCase):
     client = Client()
     """Creates a user"""
     def setUp(self):

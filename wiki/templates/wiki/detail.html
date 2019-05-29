@@ -7,7 +7,7 @@
 {% if perms.foo %}
 <a class="btn btn-primary btn-warning" href="{% url 'wiki:edit_page' page.title %}">Edit</a>
 {% else %}
-<p> Please Login to edit the page </p>
+<p> Please <a href="{%url 'wiki:login'%}" class="btn btn-warning"> Login</a> to edit the page </p>
 {% endif %}
 <div class ="text-center">This page has been visited {{ page.counter}} times.</div>
 {% endblock content %}

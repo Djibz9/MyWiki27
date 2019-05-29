@@ -55,19 +55,23 @@ def save_page(request, pk):
 
 @login_required
 def delete_page(request, pk):
-    page = Page.objects.get(pk=pk)
-    return render(request, "wiki/delete.html",
-    {
-        'page_name': pk
-    })
+    try:
+        Page.objects.get(pk=pk)
+        return render(request, "wiki/delete.html",
+        {
+            'page_name': pk
+        })
+    except Page.DoesNotExist:
+        return redirect('wiki:index')
 
 @login_required
-def delete_confirm(request, pk):
+def delete_confirmation(request, pk):
     page = Page.objects.get(pk=pk)
     if 'Delete' in request.POST:
         page.delete()
-        return redirect ('../../')
+        return redirect ('/../../')
 
+@login_required
 def upload_file(request):
     context = {}
     if request.method == 'POST':

@@ -198,3 +198,68 @@ django.urls.exceptions.NoReverseMatch: Reverse for 'login' not found. 'login' is
 "GET /accounts/login/?next=/wiki/The%2520Tuareg/edit HTTP/1.1" 500 150103
 Not Found: /wiki/accounts/login/
 "GET /wiki/accounts/login/ HTTP/1.1" 404 3909
+Not Found: /
+"GET / HTTP/1.1" 404 2264
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2315
+Not Found: /dogs
+"GET /dogs HTTP/1.1" 404 2294
+Not Found: /Testpage/edit/delete
+Not Found: /Testpage/edit/delete
+Not Found: /Testpage/edit/
+Not Found: /wiki/dogs/edit/delete
+"GET /wiki/dogs/edit/delete HTTP/1.1" 404 4078
+Not Found: /wiki/dogs/edit/delete_confirmation
+"GET /wiki/dogs/edit/delete_confirmation HTTP/1.1" 404 4117
+Not Found: /wikiTestpage/edit
+Not Found: /wikiTestpage/edit
+Not Found: /wikiTestpage/edit
+Not Found: /wikiTestpage/edit/
+Not Found: /
+"GET / HTTP/1.1" 404 2264
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2315
+Internal Server Error: /wiki/Testpage2/save
+Traceback (most recent call last):
+  File "C:\Users\402995\AppData\Roaming\Python\Python36\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'content'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\402995\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\402995\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\402995\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\402995\AppData\Roaming\Python\Python36\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\L3\Y2\Unit 27\Wiki\mywiki27\wiki\views.py", line 43, in save_page
+    content = request.POST["content"]
+  File "C:\Users\402995\AppData\Roaming\Python\Python36\site-packages\django\utils\datastructures.py", line 80, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'content'
+Internal Server Error: /wiki/Testpage2/save
+Traceback (most recent call last):
+  File "C:\Users\402995\AppData\Roaming\Python\Python36\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'content'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\402995\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\402995\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\402995\AppData\Roaming\Python\Python36\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\402995\AppData\Roaming\Python\Python36\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\L3\Y2\Unit 27\Wiki\mywiki27\wiki\views.py", line 43, in save_page
+    content = request.POST["content"]
+  File "C:\Users\402995\AppData\Roaming\Python\Python36\site-packages\django\utils\datastructures.py", line 80, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'content'
