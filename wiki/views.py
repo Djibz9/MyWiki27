@@ -23,7 +23,7 @@ def view_page(request, pk):
         page = Page.objects.get(pk=pk)
         page.counter = F('counter') + 1
         #console.log ('page counter now{}'.format(page.counter))
-        page.save()
+        page.save(update_fields=['counter'])
         page.refresh_from_db()
         return render(request,'wiki/detail.html', { 'page':page })
     except Page.DoesNotExist:

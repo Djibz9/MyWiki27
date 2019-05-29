@@ -10,8 +10,7 @@
 
 <form method="post" action="{%url 'wiki:save_page' page_name%}">
     {% csrf_token %}
-    <textarea id="edit_content" name="content" rows="10" cols="40">
-{{content}}
+    <textarea class="textformat" id="edit_content" name="content" rows="10" cols="40">{{content}}
     </textarea><br/>
     <br>
     <input class="btn btn-primary btn-success" name= 'Save' type="submit" value="Save">

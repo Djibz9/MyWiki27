@@ -1,3 +1,3 @@
 # MyWiki27
 Django Wiki
-  Cool this a wiki
+  An experimental wiki that is being used to teach me in how to code in Django.

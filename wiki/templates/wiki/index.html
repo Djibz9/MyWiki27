@@ -6,10 +6,11 @@
 <div class="container text-center">
 {% if request.user.is_authenticated %}
 <a href="{%url 'wiki:logout'%}" class="btn btn-danger login-logout"> Logout</a>
+Welcome {{ request.user.username}} !!<br>
 {% else %}
 <a href="{%url 'wiki:login'%}" class="btn btn-warning login-logout"> Login</a>   
 {% endif %} 
-    <h1 class="jumbotron jt ">Welcome to Kwiki</h1> <img src="{%static 'wiki/image/vanGogh.jpg'%}"
+    <h1 class="jumbotron jt ">Welcome to Kwiki</h1> <img src="{%static 'wiki/image/vanGogh.jpg'%}"</h1>
     <div>
     {% for page in pages %}
         <li class="list-group-item">
@@ -20,8 +21,8 @@
 {% else %}
  <p> No pages found.</p>
 {% endif %}
+<div class="text-center">
+The browser used to load this page is {{request.META.HTTP_USER_AGENT}}
+</div>
+</div>
 {% endblock content%}
-
-{% block footer %}
-You are accesing this website through 
-{% endblock footer%}
