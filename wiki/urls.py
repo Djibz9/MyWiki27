@@ -5,12 +5,11 @@ from . import views
 
 
 app_name = 'wiki'
-
+# this is where the web app's url's are defined
 urlpatterns = [
     path('',views.IndexView.as_view(), name = 'index'),
     path('errors/404', views.test_error_404, name='test_error_404'),
     path('errors/500', views.test_error_500, name='test_error_500'),
-    path('<str:pk>/delete/confirm', views.delete_confirmation, name='delete_confirmation'),
     path('<str:pk>/delete', views.delete_page, name='delete_page'),
     path('upload/', views.upload_file, name='upload_page'),
     path('<str:pk>/save', views.save_page, name='save_page'),

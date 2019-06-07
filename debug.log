@@ -263,3 +263,29 @@ Traceback (most recent call last):
   File "C:\Users\402995\AppData\Roaming\Python\Python36\site-packages\django\utils\datastructures.py", line 80, in __getitem__
     raise MultiValueDictKeyError(key)
 django.utils.datastructures.MultiValueDictKeyError: 'content'
+Not Found: /
+"GET / HTTP/1.1" 404 2264
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2315
+Not Found: /upload
+"GET /upload HTTP/1.1" 404 2300
+Not Found: /wiki/The Tuareg/media/upload Tuareg.jpg
+"GET /wiki/The%20Tuareg/media/upload%20Tuareg.jpg HTTP/1.1" 404 4136
+Not Found: /wiki/The Tuareg/upload/ Tuareg.jpg
+"GET /wiki/The%20Tuareg/upload/%20Tuareg.jpg HTTP/1.1" 404 4121
+Not Found: /wiki/The Tuareg/upload/ Tuareg.jpg
+"GET /wiki/The%20Tuareg/upload/%20Tuareg.jpg HTTP/1.1" 404 4121
+Not Found: /wiki/The Tuareg/upload/Tuareg.jpg
+"GET /wiki/The%20Tuareg/upload/Tuareg.jpg?raw=true HTTP/1.1" 404 4125
+Not Found: /wiki/The Tuareg/upload/Tuareg.jpg
+"GET /wiki/The%20Tuareg/upload/Tuareg.jpg?raw=true HTTP/1.1" 404 4125
+Not Found: /wiki/The Tuareg/media/upload/Tuareg.jpg
+"GET /wiki/The%20Tuareg/media/upload/Tuareg.jpg?raw=true HTTP/1.1" 404 4143
+Not Found: /wiki/The Tuareg/media/upload/Tuareg.jpg
+"GET /wiki/The%20Tuareg/media/upload/Tuareg.jpg?raw=true HTTP/1.1" 404 4143
+Not Found: /wiki/The Tuareg/upload/Tuareg.jpg
+"GET /wiki/The%20Tuareg/upload/Tuareg.jpg?raw=true HTTP/1.1" 404 4125
+"GET /wiki/The%20Tuareg/upload/Tuareg.jpg?raw=true HTTP/1.1" 500 59
+Not Found: /wiki/The Tuareg/upload/Tuareg.jpg
+"GET /wiki/The%20Tuareg/upload/Tuareg.jpg?raw=true HTTP/1.1" 404 4125
+"GET /wiki/The%20Tuareg/upload/Tuareg.jpg?raw=true HTTP/1.1" 500 59

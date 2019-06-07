@@ -2,12 +2,15 @@
 {% load static %}
 {% load my_tags %} 
 {% block content %}
+{#This is how the pages created and edited are rendered #}
 <h1>{{ page.title }}</h1>
 <p>{{page.content | wikify | markup  | safe}}</p>
+{#Here we have an if statement that clearly states the edit button should appear if the user is logged in otherwise ask him to log in#}
 {% if perms.foo %}
 <a class="btn btn-primary btn-warning" href="{% url 'wiki:edit_page' page.title %}">Edit</a>
 {% else %}
 <p> Please <a href="{%url 'wiki:login'%}" class="btn btn-warning"> Login</a> to edit the page </p>
 {% endif %}
+{#This is where the page.counter is used to control the traffic of a specific page. #}
 <div class ="text-center">This page has been visited {{ page.counter}} times.</div>
 {% endblock content %}

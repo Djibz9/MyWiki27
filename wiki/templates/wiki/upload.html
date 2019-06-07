@@ -5,6 +5,7 @@
 {% block content %}
 <h1> File Upload</h1>
 <section>
+{#This is where the upload form is set up#}
     <form method='POST' enctype='multipart/form-data' action="{% url 'wiki:upload_page' %}">
     <div class="form-group">
 	    <div class="input-group input-file" name="file">
@@ -12,6 +13,7 @@
         {{form.upload}}		
     </div>
          </div>
+    {#This is where the buttons in the upload page are defined #}
     <div class="form-group">
 	    <input class="btn btn-primary" type='submit' value="Upload">
 	    <button type="reset" class="btn btn-danger">Reset</button>
@@ -20,6 +22,7 @@
 </section>
 </hr>
 <section>
+{#This is where the list of files uploaded is created #}
 {% if files %}
     <ul>
     {% for file in files %}
@@ -27,6 +30,7 @@
     {% endfor %}
     </ul>
 {% else %}
+{#This is what shows if there aren't any files uploaded #}
 <p>No uploaded files</p>
 {% endif %}
 </section>

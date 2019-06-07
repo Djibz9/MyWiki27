@@ -4,7 +4,8 @@ from wiki.views import IndexView, DetailView
 from wiki.models import Page
 from django.urls import reverse 
 from django.http import HttpRequest
-# testing a page created
+
+#These tests ensure that the code's integrity and reliability.
 
 class PageTestCase(TestCase):
     client = Client()
@@ -43,10 +44,8 @@ class PageTestCase(TestCase):
         response = self.client.get('/wiki/Testpage/')
         self.assertEqual(response.status_code, 200)
         
-class PageTests(TestCase):
-    """Check if the homepage exists"""
-    client = Client()
     def test_index_page(self):
+        """Check if the homepage exists"""
         response = self.client.get(reverse("wiki:index"))
         response.status_code
         self.assertEqual(response.status_code, 200)

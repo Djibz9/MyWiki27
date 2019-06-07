@@ -21,4 +21,4 @@ class UserFileUpload(models.Model):
     def __str__(self):
         return self.upload.name
     
-# Create your models here.
+

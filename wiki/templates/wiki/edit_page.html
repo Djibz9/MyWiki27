@@ -1,18 +1,20 @@
-{#The script code goes here#}
 {% extends "wiki/base.html" %}
 {% load static %}
 {% block content %}
 <header>
+{#This is template page for editing any page on the wiki#}
 <h3>
+    {#It displays the name of page#}
     Editing {{page_name}}
 </h3>
 </header>
 
 <form method="post" action="{%url 'wiki:save_page' page_name%}">
     {% csrf_token %}
-    <textarea class="textformat" id="edit_content" name="content" rows="10" cols="40">{{content}}
-    </textarea><br/>
+    {#This is where the editing area is defined #}
+    <textarea class="textformat" id="edit_content" name="content" rows="10" cols="40">{{content}}</textarea><br/>
     <br>
+    {#This is where the buttons in the editing are created #}
     <input class="btn btn-primary btn-success" name= 'Save' type="submit" value="Save">
     <button class="btn btn-primary btn-danger " name= "Cancel" value="Cancel">Cancel</button>
     <input class="btn btn-danger" name = "Delete" type="submit" value = "Delete">

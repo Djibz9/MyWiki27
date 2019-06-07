@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Bitter&display=swap');
 .container{
     margin: auto;
 }
@@ -18,4 +19,7 @@ body{
 }
 .textformat{
     text-align: left;
+}
+img{
+    align-content: center;
 }
