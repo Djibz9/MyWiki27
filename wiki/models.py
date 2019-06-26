@@ -8,10 +8,10 @@ class Page(models.Model):
     #collects statistics about how many times page has been accessed
     counter = models.IntegerField(default = 1)
     
-    
+    #collects the title of the page
     def __str__(self):
         return self.title
-
+    
     def get_absolute_url(self):
         return reverse ('wiki:detail', args=[self.title])
 #this is the class where we enable the upload images on the website. 

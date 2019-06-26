@@ -24,7 +24,7 @@ class DetailView(generic.DetailView):
 def view_page(request, pk):
     try:
         page = Page.objects.get(pk=pk)
-        {#This is where the page counter is defined #}
+        #This is where the page counter is defined
         page.counter = F('counter') + 1
         #console.log ('page counter now{}'.format(page.counter))
         page.save(update_fields=['counter'])

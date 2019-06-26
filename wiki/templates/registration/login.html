@@ -30,8 +30,11 @@
           <img src="https://placeimg.com/128/128/tech/sepia">
         <h4 class="text-center">Kwiki</h4>
           <form class="form-signin">
+          <!--This is the section where the user inputs his username-->
             <input type="text" name="username" class="form-control mb-2" value="{{ form.username.value | default:''  }}" placeholder="Username" required autofocus>
+            <!--This is the section where the user inputs his password-->
             <input type="password" name="password" class="form-control mb-2" value="{{ form.password.value | default:'' }}" placeholder="Password" required>
+            <!--This is the login button-->
             <input class="btn btn-lg btn-primary btn-block mb-1" type="submit" value="Login">
       </div>
     </div>

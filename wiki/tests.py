@@ -6,7 +6,6 @@ from django.urls import reverse
 from django.http import HttpRequest
 
 #These tests ensure that the code's integrity and reliability.
-
 class PageTestCase(TestCase):
     client = Client()
     """ creates a page and a user"""

@@ -25,7 +25,7 @@ Welcome {{ request.user.username}} !!<br>
 {#If there are no pages, then this is what it will be shown on the wiki #}
  <p> No pages found.</p>
 {% endif %}
-{#This caputres the browser that the user is using to navigate through the wiki and displays it below  #}
+{#This captures the browser that the user is using to navigate through the wiki and displays it below  #}
 <div class="text-center">
 The browser used to load this page is {{request.META.HTTP_USER_AGENT}}
 </div>

@@ -289,3 +289,7 @@ Not Found: /wiki/The Tuareg/upload/Tuareg.jpg
 Not Found: /wiki/The Tuareg/upload/Tuareg.jpg
 "GET /wiki/The%20Tuareg/upload/Tuareg.jpg?raw=true HTTP/1.1" 404 4125
 "GET /wiki/The%20Tuareg/upload/Tuareg.jpg?raw=true HTTP/1.1" 500 59
+Not Found: /
+"GET / HTTP/1.1" 404 2264
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2315
