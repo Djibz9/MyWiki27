@@ -5,7 +5,7 @@ from . import views
 
 
 app_name = 'wiki'
-# this is where the web app's url's are defined
+'''this is where the web app's url's are defined'''
 urlpatterns = [
     path('',views.IndexView.as_view(), name = 'index'),
     path('errors/404', views.test_error_404, name='test_error_404'),

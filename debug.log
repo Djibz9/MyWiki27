@@ -293,3 +293,11 @@ Not Found: /
 "GET / HTTP/1.1" 404 2264
 Not Found: /favicon.ico
 "GET /favicon.ico HTTP/1.1" 404 2315
+Not Found: /
+"GET / HTTP/1.1" 404 2264
+Not Found: /
+"GET / HTTP/1.1" 404 2264
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2315
+"GET /wiki/accounts/logout/ HTTP/1.1" 500 59
+"GET /wiki/accounts/logout/ HTTP/1.1" 500 59
