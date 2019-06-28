@@ -1,20 +1,21 @@
 {% extends "wiki/base.html"%}
 {% load static %}
 {% block content %}
-{#This how you add comments to templates #}
+<!--This how you add comments to templates -->
+{#You can also do this#}
 {% if pages %}
 <div class="container text-center">
-{#It shows the logout button if the user is logged in, otherwise it shows the login button #}
+<!--It shows the logout button if the user is logged in, otherwise it shows the login button -->
 {% if request.user.is_authenticated %}
 <a href="{%url 'wiki:logout'%}" class="btn btn-danger login-logout"> Logout</a>
-{#Gives welcomes to the user by using their username otherwise it just ignores and shows login button #}
+<!--Gives welcomes to the user by using their username otherwise it just ignores and shows login button -->
 Welcome {{ request.user.username}} !!<br>
 {% else %}
 <a href="{%url 'wiki:login'%}" class="btn btn-warning login-logout"> Login</a>   
 {% endif %} 
     <h1 class="jumbotron jt ">Welcome to Kwiki</h1>
     <div>
-    {#This is the list of pages available in the wiki#}
+    <!--This is the list of pages available in the wiki-->
     {% for page in pages %}
         <li class="list-group-item">
              <a href="{% url 'wiki:detail' page.title %}" >{{ page.title }}</a>
@@ -22,10 +23,10 @@ Welcome {{ request.user.username}} !!<br>
     {% endfor %}
     </div>
 {% else %}
-{#If there are no pages, then this is what it will be shown on the wiki #}
+<!--If there are no pages, then this is what it will be shown on the wiki -->
  <p> No pages found.</p>
 {% endif %}
-{#This captures the browser that the user is using to navigate through the wiki and displays it below  #}
+<!--This captures the browser that the user is using to navigate through the wiki and displays it below -->
 <div class="text-center">
 The browser used to load this page is {{request.META.HTTP_USER_AGENT}}
 </div>
