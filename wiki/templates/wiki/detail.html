@@ -5,8 +5,10 @@
 <!--This is how the pages created and edited are rendered -->
 <h1>{{ page.title }}</h1>
 <p>{{page.content | wikify | markup  | safe}}</p>
-<!--Here we have an if statement that clearly states the edit button should appear if the user is logged in otherwise ask him to log in-->
+
 {% if user.is_authenticated %}
+<!--Here we have an if statement that clearly states the edit button should appear if the user is logged in otherwise ask him to log in-->
+<!--I used to have perms.foo but i changed it to django's user.is_authenticated function as the perms.foo was not working properly -->
 <a class="btn btn-primary btn-warning" href="{% url 'wiki:edit_page' page.title %}">Edit</a>
 {% else %}
 <p> Please <a href="{%url 'wiki:login'%}" class="btn btn-warning"> Login</a> to edit the page </p>
