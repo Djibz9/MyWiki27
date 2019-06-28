@@ -3,11 +3,11 @@
 {% block content %}
 {% block contentTitle %}
 {% endblock contentTitle %}
-{#This is the template page for the creation of a page#}
+<!--This is the template page for the creation of a page-->
 <h1>{{page_name}}</h1>
-{#Content of the new page #}
+<!--Content of the new page -->
 <p>This page does not exist.</p>
-{#This is where the buttonsin this template page are defined #}
+<!--This is where the buttonsin this template page are defined -->
 <a class="btn btn-primary" href="{% url 'wiki:edit_page' page_name %}">Create?</a>
 <a class="btn btn-primary" href="{% url 'wiki:index' %}">Home</a>
 {% endblock content %}
